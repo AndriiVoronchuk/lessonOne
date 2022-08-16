@@ -1,34 +1,26 @@
-const car = {
-    model: "VW", maxSpeed: 250, color:"blue",
-    distance: 126353*1.6,
-    year:2003,
-    age:function (){
-        return 2022-this.year
-    },
-    showPassengersCount: function (){
-        const passengersCount=this.passengers.length
-        console.log(passengersCount)
-    },
-    passengers:[
-        {name:"Vasy",age:25,driver:true},
-        {name:"Pety",age:27,driver:true},
-        {name:"Katy",age:26,driver:false},
-        {name:"Sveta",age:28,driver:true},
-    ]
+function fn1(){
+    console.log("hello")
 }
-/*console.log(car)
-const car1=car
-console.log(car1)
-car1.maxSpeed=300
-console.log(car)
-console.log(car1)
-const car2=Object.assign({},car)
-car2.maxSpeed=500
-console.log(car,car1,car2)
-car.doors=4
-console.log(car,car1,car2)
-delete car.model
-console.log(car,car1,car2)*/
+fn1()
+function fn2(a,b){
+    return a+b
+}
 
-console.log(car.age())
-car.showPassengersCount()
+console.log(fn2(2,3))
+function fn3(a=5,b=5){
+    console.log(a*b)
+}
+fn3(2,3)
+fn3()
+
+const fn4=function (a){
+    console.log(a)
+}
+fn4("hello")
+const fn5=fn4
+fn5(5)
+
+/*const fn6=function (fn){
+     fn()
+}
+fn6(fn4("Hi"))*/
