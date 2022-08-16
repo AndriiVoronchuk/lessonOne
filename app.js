@@ -1,13 +1,14 @@
-console.log("Hi")
-const firstName = "Andrii"
-console.log(firstName)
-let name = firstName + " Voronchuk"
-console.log(name)
-console.log(`${firstName} Voronchuk
-age 41`)
-
 const car = {
     model: "VW", maxSpeed: 250, color:"blue",
+    distance: 126353*1.6,
+    year:2003,
+    age:function (){
+        return 2022-this.year
+    },
+    showPassengersCount: function (){
+        const passengersCount=this.passengers.length
+        console.log(passengersCount)
+    },
     passengers:[
         {name:"Vasy",age:25,driver:true},
         {name:"Pety",age:27,driver:true},
@@ -16,37 +17,18 @@ const car = {
     ]
 }
 /*console.log(car)
- console.log(car.passengers[2].driver)
- car.passengers[2].driver=true
-*/
-const isDriver = !car.passengers[0].driver
-console.log(isDriver)
-/*if (car.passengers[0].name) {
-    console.log(25)
-}                 else {
-    console.log("Small")
-}    */
-     if (isDriver){
-         console.log("Yes")
-     }      else {
-         console.log("No")
-     }
-/*let driver
-if (isDriver){
-    driver="Yes"
-}      else {
-    driver="No"
-}*/
-//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
-const driver=isDriver ? "Yes" : "No"
-
-console.log(driver)
-
-const color = car.color??"black"
-console.log(color)
-//car.color="red"
-console.log(car.color??"black")
-console.log(car.color)
+const car1=car
+console.log(car1)
+car1.maxSpeed=300
 console.log(car)
+console.log(car1)
+const car2=Object.assign({},car)
+car2.maxSpeed=500
+console.log(car,car1,car2)
+car.doors=4
+console.log(car,car1,car2)
+delete car.model
+console.log(car,car1,car2)*/
 
-console.log(car.color??isDriver?"Yes" : "No")
+console.log(car.age())
+car.showPassengersCount()
