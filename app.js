@@ -1,10 +1,3 @@
-console.log("Hi")
-const firstName = "Andrii"
-console.log(firstName)
-let name = firstName + " Voronchuk"
-console.log(name)
-console.log(`${firstName} Voronchuk
-age 41`)
 
 const car = {
     model: "VW", maxSpeed: 250, color:"blue",
@@ -15,38 +8,45 @@ const car = {
         {name:"Sveta",age:28,driver:true},
     ]
 }
-/*console.log(car)
- console.log(car.passengers[2].driver)
- car.passengers[2].driver=true
-*/
-const isDriver = !car.passengers[0].driver
-console.log(isDriver)
-/*if (car.passengers[0].name) {
-    console.log(25)
-}                 else {
-    console.log("Small")
-}    */
-     if (isDriver){
-         console.log("Yes")
-     }      else {
-         console.log("No")
-     }
-/*let driver
-if (isDriver){
-    driver="Yes"
-}      else {
-    driver="No"
-}*/
-//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
-const driver=isDriver ? "Yes" : "No"
+const {model,passengers}=car
+console.log(passengers)
+console.table(passengers)
+console.log(passengers.length)
 
-console.log(driver)
+const count=passengers.length
+for(let i=0;i<count;i++){
+    console.log(passengers[i].name)
+}
+let totalAge=0
+passengers.forEach(item=>{
+    totalAge+=item.age
+    console.log(item)
+})
+console.log(totalAge)
 
-const color = car.color??"black"
-console.log(color)
-//car.color="red"
-console.log(car.color??"black")
-console.log(car.color)
-console.log(car)
+// const fn=function (item,index) {
+//     console.log(`index of current item is ${index}`)
+//     item.yearOfBirth=2022-item.age
+//     return item
+// }
 
-console.log(car.color??isDriver?"Yes" : "No")
+const newPassengers=passengers.map((item)=>new Date().getFullYear()-item.age)
+console.log(newPassengers)
+//console.log(passengers[0])
+// const itemIndex=0
+// const newPass = fn(passengers[itemIndex],itemIndex)
+// console.log(newPass)
+
+console.table(newPassengers)
+
+const resultFilter=passengers.filter(item=>item.driver&&item.age>25)
+console.log(resultFilter)
+
+const resultFind=passengers.find(item=>item.name==='Katy').age
+console.log(resultFind)
+
+const resultIndex=passengers.findIndex(item=>item.driver)
+console.log(resultIndex)
+
+const resultReduce=passengers.reduce((total,item)=>total+item.age,0)
+console.log(resultReduce)
